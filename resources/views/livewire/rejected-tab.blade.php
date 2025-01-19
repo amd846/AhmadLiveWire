@@ -21,8 +21,9 @@
                 </tr>
             </thead>
             <tbody>
-                 @if($orders)
-                @foreach ($orders as $order)
+               
+                @if($RejectedTab)
+                @foreach ($RejectedTab as $order)
                     
                 
                 <tr>

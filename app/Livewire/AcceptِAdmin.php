@@ -47,5 +47,7 @@ class AcceptِAdmin extends Component
         
       
         $this->dispatch('ListOrder');
+      //  $this->emit('ListOrder');
+        
     }
 }

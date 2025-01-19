@@ -9,9 +9,9 @@ use App\Models\RejectedOrder;
 use App\Models\User;
 use Carbon\Carbon;
 
-class ListOrders extends Component
+class RejectedTab extends Component
 {
-    protected $listeners = ['ListOrders' => '$refresh',
+    protected $listeners = ['ListOrder' => '$refresh',
     //'RejectedTab' => '$refresh'
 ];
 
@@ -111,10 +111,8 @@ class ListOrders extends Component
 
 
 
-        return view('livewire.list-orders',[
-            'orders' => $orders     ,
-     //   'RejectedTab'=>$rejectedorders,
-          
-    ]);
+        return view('livewire.rejected-tab', [
+            //'orders' => $orders, 
+        'RejectedTab'=>$rejectedorders]);
     }
 }

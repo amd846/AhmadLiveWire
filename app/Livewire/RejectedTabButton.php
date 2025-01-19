@@ -9,11 +9,30 @@ use App\Models\RejectedOrder;
 use App\Models\User;
 use Carbon\Carbon;
 
-class ListOrders extends Component
+
+class RejectedTabButton extends Component
 {
-    protected $listeners = ['ListOrders' => '$refresh',
-    //'RejectedTab' => '$refresh'
-];
+    /*
+    protected $listeners = ['funMoreTwo' => '$rejectedTab'];
+    public function render()
+    {
+        return view('livewire.rejected-tab-button');
+    }
+
+    public function rejectedTab(){
+        
+    }
+
+}
+
+
+
+
+
+
+class ListOrders extends Component
+{*/
+    protected $listeners = ['ListOrder' => '$refresh'];
 
     private function getActiveSessions()
     {
@@ -41,7 +60,7 @@ class ListOrders extends Component
     {
         $activeSessions = $this->getActiveSessions();
 
-        $orders = Order::with('user:id,name,age,userLogIn_at,userLogOut_at')
+        $orders = RejectedOrder::with('user:id,name,age,userLogIn_at,userLogOut_at')
             ->select([
                 'id',
                 'userID',
@@ -70,51 +89,7 @@ class ListOrders extends Component
                 ];
             });
 
-
-
-
-
-
-
-            $rejectedorders = RejectedOrder::with('user:id,name,age,userLogIn_at,userLogOut_at')
-            ->select([
-                'id',
-                'userID',
-                'userRequiredAmount',
-                'userOrderDate',
-                'userPercentageAcceptance',
-                'userOrderStatus',
-                'cause',
-            ])
-            ->where('userTransferOrder', false)
-            ->get()
-            ->map(function ($order) use ($activeSessions) {
-                return [
-                    'UserName' => $order->user->name ?? __('Unavailable'),
-                    'RequiredAmount' => $order->userRequiredAmount,
-                    'OrderID' => $order->id,
-                    'OrderDate' => $order->userOrderDate->format('Y-m-d H:i:s'),
-                    'PercentageAcceptance' => $this->calculatePercentageAcceptance($order),
-                    'OrderStatus' => $order->userOrderStatus,
-                    'Reason' => $order->cause ?? ' ',
-                    'Age' => $order->user->age,
-                    'OnOff' => in_array($order->userID, $activeSessions->toArray()) 
-                        ? __('Active') 
-                        : __('Inactive'),
-                    'UserID' => $order->userID,
-                ];
-            });
-
-
-
-
-
-
-
-        return view('livewire.list-orders',[
-            'orders' => $orders     ,
-     //   'RejectedTab'=>$rejectedorders,
-          
-    ]);
+    //    return view('livewire.rejected-tab', ['rejectedOrders' => $orders]);
     }
 }
+

@@ -25,30 +25,12 @@
     @livewireStyles
 </head>
 <body>
-    <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 20px;">
-        <!-- First Div with Buttons -->
-        <div>
-             
-      
-
-
-             
-             @livewire('acceptِ-admin')
-
-            
-            @livewire('more-two')
-            @livewire('accept-twenty')
-
-        </div>
-    
-        <!-- Second Div with Input Field -->
-       
+    @livewire('container-tab')
    
-@livewire('list-orders')
-
-</div> 
   
    @livewireScripts
 </body>
 </html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 

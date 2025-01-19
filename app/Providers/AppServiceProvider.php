@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
 
     private function runOnStartup(orderService $orderService)
     {
-        \Log::info('Application started! Running startup function.');
+       // \Log::info('Application started! Running startup function.');
 
         
       //  $orderService->deleteThreeDays();
