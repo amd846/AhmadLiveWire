@@ -16,6 +16,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/admin/showFixed', [AdminController::class, 'index'])->name('admin.showFixed');
 });
 
+Route::get('/supervisor/NewOrder', [OrderController::class, 'NewOrder'])->name('supervisor.NewOrder');
+
 Route::middleware(['auth', 'role:supervisor'])->group(function () {
     Route::get('/supervisor/dashboard', [SupervisorController::class, 'dashboard'])->name('supervisor.dashboard');
     Route::get('/supervisor/showOrderSupervisor', [OrderController::class, 'showOrderSupervisor'])->name('supervisor.showOrderSupervisor');
@@ -23,6 +25,9 @@ Route::middleware(['auth', 'role:supervisor'])->group(function () {
     Route::get('/supervisor/showRejectedOrderSupervisor', [OrderController::class, 'showRejectedOrderSupervisor'])->name('supervisor.showRejectedOrderSupervisor');
 
     Route::get('/supervisor/showOrderSupervisorLivewire', [OrderController::class, 'showOrderSupervisorLivewire'])->name('supervisor.showOrderSupervisorLivewire');
+    Route::get('/supervisor/Test', [OrderController::class, 'Test'])->name('supervisor.Test');
+
+    
 
 
     Route::post('/supervisor/twoDays', [OrderController::class, 'twoDays'])->name('supervisor.twoDays');

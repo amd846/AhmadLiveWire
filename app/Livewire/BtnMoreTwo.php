@@ -3,7 +3,8 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\Order;
+
+ use App\Models\Order;
 use App\Models\RejectedOrder;
 use App\Models\User;
 use App\Services\orderService;
@@ -16,13 +17,23 @@ use Illuminate\Support\Facades\DB;
  
 use Carbon\Carbon;
 
-class MoreTwo extends Component
+class BtnMoreTwo extends Component
 {
-    protected $listeners = ['funMoreTwo' => 'moreTwo'];
+   /* public function render()
+    {
+        return view('livewire.btn-more-two');
+    }
+}*/
+
+
+
+protected $listeners = ['funMoreTwo' => 'moreTwo'];
      
     public function render()
     {
-        return view('livewire.more-two');
+    //    return view('livewire.Tab1');
+
+        return view('livewire.btn-more-two');
     }
     public function moreTwo(){
 
@@ -108,7 +119,13 @@ class MoreTwo extends Component
       //  dd ($orderService->rejectedOrders());
        // $this->dispatch('ٌRejectedTab');
        // $this->dispatch('ListOrder',['RejectedTab', 'ListOrder']);
-     $this->dispatch(['ListOrders','Tab1','Tab2','Tab3']);
+     $this->dispatch([
+        //'ListOrders',
+     'funTab1',
+     'funTab2',
+     'funTab3',
+     //,'Tab2','Tab3'
+    ]);
      //,['orders'>= $orders] );
     
 

@@ -20,7 +20,7 @@
                     <th>إجراءات</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody>               
                  @if($orders)
                 @foreach ($orders as $order)
                     

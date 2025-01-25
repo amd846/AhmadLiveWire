@@ -3,14 +3,8 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Illuminate\Support\Facades\DB;
-use App\Models\Order;
-use App\Models\RejectedOrder;
-use App\Models\User;
-use Carbon\Carbon;
 
- 
-class RejectedTabButton extends Component
+class AcceptedTabButton extends Component
 {
 
     public function render1()
@@ -67,7 +61,6 @@ private function calculatePercentageAcceptance($order)
 
 public function render()
 {
-    Log::info('This is a rejected button');
     $activeSessions = $this->getActiveSessions();
 
     $orders = RejectedOrder::with('user:id,name,age,userLogIn_at,userLogOut_at')

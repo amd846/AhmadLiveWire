@@ -84,8 +84,14 @@ return redirect()->route('order.showOrder')->with('success', 'Order is created s
        // return response()->json(['success' => true ], 201);
     }
 
+    public function NewOrder(){ 
+        return view('supervisor.NewOrder');
+    }
 
 
+    public function Test(){ 
+        return view('supervisor.test');
+    }
 
     public function showOrderSupervisorLivewire(){ 
 
